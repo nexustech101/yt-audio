@@ -1,6 +1,6 @@
 # yt-audio
 
-A small CLI tool for extracting audio from YouTube videos. Built on [yt-dlp](https://github.com/yt-dlp/yt-dlp) and [ffmpeg](https://ffmpeg.org/), with a [Rich](https://github.com/Textualize/rich) terminal interface.
+A small CLI tool for extracting audio from YouTube videos or saving full videos. Built on [yt-dlp](https://github.com/yt-dlp/yt-dlp) and [ffmpeg](https://ffmpeg.org/), with a [Rich](https://github.com/Textualize/rich) terminal interface.
 
 ```
 ╭─────────────────────────── YouTube Audio Extraction ───────────────────────────╮
@@ -35,7 +35,10 @@ This installs the `yt-audio` entry point along with all Python dependencies (`yt
 
 ```
 yt-audio audio <url> [format] [output_dir]
+yt-audio video <url> [quality] [output_dir]
 ```
+
+### Audio
 
 | Argument     | Description                              | Default |
 |--------------|------------------------------------------|---------|
@@ -46,6 +49,18 @@ yt-audio audio <url> [format] [output_dir]
 **Supported formats:** `mp3` · `m4a` · `wav` · `opus` · `flac`
 
 The command can also be invoked via `--audio` or `-a`.
+
+### Video
+
+| Argument     | Description                         | Default |
+|--------------|-------------------------------------|---------|
+| `url`        | YouTube video URL                   | —       |
+| `quality`    | Maximum video quality to download   | `best`  |
+| `output_dir` | Directory to save the video         | `.`     |
+
+**Supported qualities:** `best` · `2160p` · `1440p` · `1080p` · `720p` · `480p` · `360p` · `worst`
+
+The command can also be invoked via `--video` or `-v`.
 
 ### Examples
 
@@ -61,6 +76,12 @@ yt-audio audio "https://youtu.be/dQw4w9WgXcQ" flac ./audio
 
 # Preview what would happen without downloading
 yt-audio audio "https://youtu.be/dQw4w9WgXcQ" mp3 ./audio --dry-run
+
+# Save full video at up to 1080p
+yt-audio video "https://youtu.be/dQw4w9WgXcQ" 1080p ./videos
+
+# Save the best available full video
+yt-audio --video "https://youtu.be/dQw4w9WgXcQ"
 ```
 
 ### Dry run

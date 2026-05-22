@@ -55,7 +55,7 @@ dev = [
 yt-audio = "cli:main"
 
 [tool.setuptools]
-py-modules = ["yt_audio"]
+py-modules = ["cli", "yt_audio"]
 
 [tool.ruff]
 line-length = 100

@@ -41,6 +41,7 @@ htmlcov/
 *.*wal
 *.wav
 *.mp3
+*.mp4
 *graph.md
 .graph-out/
 test.py
